@@ -5,8 +5,10 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR=vim
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-PATH+="$PATH:/opt/nvim-linux-x86_64/bin"
+PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+PATH="$PATH:$HOME/myscripts"
 
+alias apostrophe='flatpak run org.gnome.gitlab.somas.Apostrophe'
 alias dot="git --git-dir=$HOME/.dotfiles --work-tree=$HOME/"
 alias pbcopy="xclip -sel clip"
 
