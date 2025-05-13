@@ -1,0 +1,19 @@
+modmap:
+  - name: all
+    remap:
+      CapsLock: Control_L
+      Control_L: CapsLock
+keymap:
+  - name: non_term
+    application:
+      not: [Alacritty]
+    remap:
+      C-f: right
+      C-b: left
+      C-p: up
+      C-n: down
+  - name: term
+    application:
+      only: [Alacritty]
+    remap:
+      C-backspace: C-w
