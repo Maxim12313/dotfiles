@@ -8,10 +8,15 @@ keymap:
     application:
       not: [Alacritty]
     remap:
+      C-d: delete
       C-f: right
       C-b: left
       C-p: up
       C-n: down
+      M-backspace: C-backspace
+      M-f: C-right
+      M-b: C-left
+      C-slash: C-f
   - name: term
     application:
       only: [Alacritty]

@@ -26,6 +26,8 @@ cursor = "#A0A0A0"
 opacity = 0.95
 padding.x = 10
 padding.y = 10
+startup_mode = "Maximized"
+decorations = "None"
 
 [font]
 offset.x = 0                              # For letter spacing (default: 0)
