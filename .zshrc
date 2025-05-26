@@ -8,9 +8,17 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 PATH="$PATH:$HOME/myscripts"
 
+# other alias
 alias dot="git --git-dir=$HOME/.dotfiles --work-tree=$HOME/"
 alias pbcopy="xclip -sel clip"
+alias df="duf"
+alias ls="eza --icons"
+tree() {
+    local depth=${1:-1}
+    eza --icons -TL "$depth"
+}
 
+# get stuff
 alias gaa="git add -A"
 alias gap="git add -p"
 alias gc="git commit --verbose"
@@ -37,7 +45,7 @@ run() {
 }
 
 in() {
-    number="${2:-0}"
+    local number="${2:-0}"
     run $1 < "$1_input$number.txt";
     echo "----\n";
     cat "$1_output$number.txt";
