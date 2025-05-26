@@ -8,7 +8,7 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 PATH="$PATH:$HOME/myscripts"
 
-# other alias
+# other remapping
 alias dot="git --git-dir=$HOME/.dotfiles --work-tree=$HOME/"
 alias pbcopy="xclip -sel clip"
 alias df="duf"
@@ -17,6 +17,7 @@ tree() {
     local depth=${1:-1}
     eza --icons -TL "$depth"
 }
+eval "$(zoxide init --cmd cd zsh)"
 
 # get stuff
 alias gaa="git add -A"
@@ -58,4 +59,3 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-eval "$(zoxide init --cmd cd zsh)"
