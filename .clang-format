@@ -5,8 +5,10 @@ UseTab: Never
 BreakBeforeBraces: Attach
 AllowShortIfStatementsOnASingleLine: false
 AllowShortLoopsOnASingleLine: false
-AllowShortFunctionsOnASingleLine: InlineOnly
+AllowShortFunctionsOnASingleLine: false
 
 ColumnLimit: 120
 AccessModifierOffset: -4
 IndentCaseLabels: true
+
+AlwaysBreakTemplateDeclarations: Yes

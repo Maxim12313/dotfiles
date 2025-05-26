@@ -13,10 +13,11 @@ keymap:
       C-b: left
       C-p: up
       C-n: down
+      C-e: end
       M-backspace: C-backspace
       M-f: C-right
       M-b: C-left
-      C-slash: C-f
+      C-slash: C-f 
   - name: term
     application:
       only: [Alacritty]

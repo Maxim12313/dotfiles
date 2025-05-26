@@ -16,6 +16,7 @@ alias gap="git add -p"
 alias gc="git commit --verbose"
 alias gca="git commit --amend"
 alias gp="git push"
+alias gpu="git push -u origin main"
 alias gl="git pull"
 alias gck="git checkout"
 alias gst="git status"
@@ -27,25 +28,15 @@ alias grs="git remote set-url"
 bindkey "^[[Z" autosuggest-accept
 
 
-coDebug() {
+co() {
     g++ -std=c++23 -g -O1 $1.cpp -o $1.out -Wall -Wextra -Wshadow -Wconversion -Wno-sign-conversion -Wno-sign-compare -Wfloat-equal -fsanitize=address,undefined;
-}
-coFast() {
-    g++ -std=c++23 -O0 $1.cpp -o $1.out -Wall -Wshadow -Wconversion -Wno-sign-conversion -Wno-sign-compare -Wfloat-equal -fsanitize=undefined;
 }
 
 run() {
-    coFast $1 && ./$1.out;
+    co $1 && ./$1.out;
 }
 
-inf() {
-    number="${2:-0}";
-    coFast $1 && ./$1< "$1_input$number.txt";
-    echo "----\n";
-    cat "$1_output$number.txt";
-}
-
-ind() {
+in() {
     number="${2:-0}"
     run $1 < "$1_input$number.txt";
     echo "----\n";
@@ -58,3 +49,5 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(zoxide init --cmd cd zsh)"
