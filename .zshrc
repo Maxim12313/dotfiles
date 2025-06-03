@@ -3,25 +3,29 @@ ZSH_THEME="geoffgarside"
 plugins=(zsh-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
-export EDITOR=vim
+export EDITOR=nvim
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 PATH="$PATH:$HOME/myscripts"
+PATH="$PATH:/home/maximk/.cargo/bin"
 
 # other remapping
 alias dot="git --git-dir=$HOME/.dotfiles --work-tree=$HOME/"
 alias pbcopy="xclip -sel clip"
 alias df="duf"
 alias ls="eza --icons"
+alias open="xdg-open"
 tree() {
     local depth=${1:-1}
     eza --icons -TL "$depth"
 }
+
 eval "$(zoxide init --cmd cd zsh)"
 
 # get stuff
 alias gaa="git add -A"
 alias gap="git add -p"
+alias gsw="git switch"
 alias gc="git commit --verbose"
 alias gca="git commit --amend"
 alias gp="git push"
@@ -33,6 +37,7 @@ alias glgg="git log --graph"
 alias grh="git reset"
 alias gra="git remote add"
 alias grs="git remote set-url"
+alias gd="git diff"
 
 bindkey "^[[Z" autosuggest-accept
 
