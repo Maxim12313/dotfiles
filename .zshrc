@@ -3,7 +3,6 @@ ZSH_THEME="geoffgarside"
 plugins=(zsh-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
-export EDITOR=nvim
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 PATH="$PATH:$HOME/myscripts"
@@ -18,6 +17,11 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+# is container file
+# sudo chcon -Rt container_file_t .
+
+# reset container file
+# sudo restorecon -Rv ~/project
 
 # other remapping
 alias dot="git --git-dir=$HOME/.dotfiles --work-tree=$HOME/"
@@ -29,10 +33,11 @@ tree() {
     local depth=${1:-1}
     eza --icons -TL "$depth"
 }
-
 eval "$(zoxide init --cmd cd zsh)"
+alias cat="bat"
+alias nb="ninja"
 
-# get stuff
+# git stuff
 alias gaa="git add -A"
 alias gap="git add -p"
 alias gsw="git switch"
@@ -45,9 +50,17 @@ alias gck="git checkout"
 alias gst="git status"
 alias glgg="git log --graph"
 alias grh="git reset"
-alias gra="git remote add"
-alias grs="git remote set-url"
+alias gr="git remote"
 alias gd="git diff"
+alias gb="git branch"
+alias gsh="git show"
+alias grs="git restore"
+
+# cpp
+alias cmakel="cmake -B build"
+alias nbl="ninja -C build"
+alias makel="make -C build"
+alias tl="ctest --test-dir build"
 
 bindkey "^[[Z" autosuggest-accept
 
@@ -66,6 +79,12 @@ in() {
     echo "----\n";
     cat "$1_output$number.txt";
 }
+
+
+
+# variables below
+export EDITOR=nvim
+export CMAKE_GENERATOR=Ninja
 
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"

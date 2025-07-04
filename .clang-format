@@ -7,8 +7,9 @@ AllowShortIfStatementsOnASingleLine: false
 AllowShortLoopsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: false
 
-ColumnLimit: 120
+ColumnLimit: 80
 AccessModifierOffset: -4
 IndentCaseLabels: true
 
 AlwaysBreakTemplateDeclarations: Yes
+SortIncludes: false

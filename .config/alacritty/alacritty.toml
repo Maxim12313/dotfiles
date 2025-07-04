@@ -9,6 +9,7 @@ save_to_clipboard = true
 [env]
 TERM = "xterm-256color"
 
+
 # [cursor.style]
 # shape = "Beam"
 
@@ -23,7 +24,7 @@ text = "#282a36"
 cursor = "#A0A0A0"
 
 [window]
-opacity = 0.95
+opacity = 0.99
 padding.x = 10
 padding.y = 10
 startup_mode = "Maximized"
@@ -48,7 +49,8 @@ size = 11
 
 [colors.primary]
 
-background = "#282a36"
+# background = "#282a36"
+background = "#212229"
 foreground = "#f8f8f2"
 bright_foreground = "#ffffff"
 

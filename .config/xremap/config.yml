@@ -6,7 +6,7 @@ modmap:
 keymap:
   - name: non_term
     application:
-      not: [Alacritty]
+      not: [Alacritty, Code]
     remap:
       C-d: delete
       C-f: right
@@ -18,8 +18,19 @@ keymap:
       M-f: C-right
       M-b: C-left
       C-slash: C-f 
+
   - name: term
     application:
       only: [Alacritty]
     remap:
       C-backspace: C-w
+
+  - name: code
+    application:
+      only: [Code]
+    remap:
+      C-f: right
+      C-b: left
+      C-e: end
+      M-f: C-right
+      M-b: C-left
