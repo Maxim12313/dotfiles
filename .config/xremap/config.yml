@@ -1,14 +1,17 @@
 modmap:
   - name: all
+    device: 
+      only: [AT Translated Set 2 keyboard]
     remap:
       CapsLock: Control_L
       Control_L: CapsLock
 keymap:
   - name: non_term
+    device: 
+      only: [AT Translated Set 2 keyboard]
     application:
       not: [Alacritty, Code]
     remap:
-      C-d: delete
       C-f: right
       C-b: left
       C-p: up
@@ -17,15 +20,19 @@ keymap:
       M-backspace: C-backspace
       M-f: C-right
       M-b: C-left
-      C-slash: C-f 
+      C-Shift-slash: C-f 
 
   - name: term
+    device: 
+      only: [AT Translated Set 2 keyboard]
     application:
       only: [Alacritty]
     remap:
       C-backspace: C-w
 
   - name: code
+    device: 
+      only: [AT Translated Set 2 keyboard]
     application:
       only: [Code]
     remap:
@@ -34,3 +41,12 @@ keymap:
       C-e: end
       M-f: C-right
       M-b: C-left
+
+  - name: mouse_non_code
+    application:
+      not: [Alacritty]
+    device: 
+      only: [Glorious Model O]
+    remap:
+      BTN_EXTRA: C-v
+

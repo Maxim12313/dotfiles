@@ -34,7 +34,6 @@ tree() {
     eza --icons -TL "$depth"
 }
 eval "$(zoxide init --cmd cd zsh)"
-alias cat="bat"
 alias nb="ninja"
 
 # git stuff
@@ -49,11 +48,11 @@ alias gl="git pull"
 alias gck="git checkout"
 alias gst="git status"
 alias glgg="git log --graph"
-alias grh="git reset"
 alias gr="git remote"
 alias gd="git diff"
 alias gb="git branch"
 alias gsh="git show"
+alias grh="git reset"
 alias grs="git restore"
 
 # cpp
@@ -66,7 +65,7 @@ bindkey "^[[Z" autosuggest-accept
 
 
 co() {
-    g++ -std=c++23 -g -O1 $1.cpp -o $1.out -Wall -Wextra -Wshadow -Wconversion -Wno-sign-conversion -Wno-sign-compare -Wfloat-equal -fsanitize=address,undefined;
+    g++ -std=c++23 -g -O0 $1.cpp -o $1.out -Wall -Wextra -Wshadow -Wconversion -Wno-sign-conversion -Wno-sign-compare -Wfloat-equal -fsanitize=undefined;
 }
 
 run() {
