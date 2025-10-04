@@ -7,6 +7,7 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 PATH="$PATH:$HOME/myscripts"
 PATH="$PATH:/home/maximk/.cargo/bin"
+PATH="$PATH:$HOME/tools"
 
 # yazi
 function y() {
@@ -16,6 +17,29 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+
+# ******** networking
+#
+# make xterm larger
+export XTERM="xterm -fa 'Monospace' -fs 16"
+
+function mnbash() {
+    if [ $# -ne 1 ]; then
+        echo "Usage: $0 <hostname>"
+        exit 1
+    fi
+
+    local host_process=$(ps aux | grep "mininet:$1" | grep -v grep)
+    if [ -z "$host_process" ]; then
+        echo "No mininet process found for $1"
+        exit 1
+    fi
+
+    local host_pid=$(echo $host_process | awk '{print $2}')
+    sudo mnexec -a $host_pid bash
+}
+
+
 
 # is container file
 # sudo chcon -Rt container_file_t .
@@ -54,6 +78,11 @@ alias gb="git branch"
 alias gsh="git show"
 alias grh="git reset"
 alias grs="git restore"
+alias gsta="git stash save"
+alias gstp="git stash pop"
+alias gf="git fetch"
+alias gm="git merge"
+alias grb="git rebase"
 
 # cpp
 alias cmakel="cmake -B build"
