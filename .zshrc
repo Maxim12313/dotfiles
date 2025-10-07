@@ -108,6 +108,10 @@ in() {
     cat "$1_output$number.txt";
 }
 
+# hacks
+alias john="~/builds/john/run/john"
+
+
 
 
 # variables below
