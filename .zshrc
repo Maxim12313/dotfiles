@@ -9,6 +9,9 @@ PATH="$PATH:$HOME/myscripts"
 PATH="$PATH:/home/maximk/.cargo/bin"
 PATH="$PATH:$HOME/tools"
 
+# add john tools
+PATH="$PATH:/home/maximk/builds/john/run"
+
 # yazi
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -59,6 +62,7 @@ tree() {
 }
 eval "$(zoxide init --cmd cd zsh)"
 alias nb="ninja"
+alias e="nvim ."
 
 # git stuff
 alias gaa="git add -A"
@@ -77,41 +81,39 @@ alias gd="git diff"
 alias gb="git branch"
 alias gsh="git show"
 alias grh="git reset"
-alias grs="git restore"
+alias grs="git restore --staged"
 alias gsta="git stash save"
 alias gstp="git stash pop"
 alias gf="git fetch"
 alias gm="git merge"
 alias grb="git rebase"
+alias gcp="git cherry-pick"
+alias gai="git add -i"
+alias gr="git remote"
 
 # cpp
 alias cmakel="cmake -B build"
 alias nbl="ninja -C build"
 alias makel="make -C build"
 alias tl="ctest --test-dir build"
+alias make="make -j8"
+
+# python
+alias py="python"
+
+# rust
+alias c="cargo"
 
 bindkey "^[[Z" autosuggest-accept
 
-
-co() {
-    g++ -std=c++23 -g -O0 $1.cpp -o $1.out -Wall -Wextra -Wshadow -Wconversion -Wno-sign-conversion -Wno-sign-compare -Wfloat-equal -fsanitize=undefined;
-}
-
-run() {
-    co $1 && ./$1.out;
-}
-
-in() {
-    local number="${2:-0}"
-    run $1 < "$1_input$number.txt";
-    echo "----\n";
-    cat "$1_output$number.txt";
-}
-
 # hacks
 alias john="~/builds/john/run/john"
+function cont() {
+    touch z_expected.txt
+    cp ~/cpp/template/Makefile .
+}
 
-
+alias diff="diff -yb"
 
 
 # variables below
@@ -125,3 +127,4 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# PATH=$PATH:/home/maximk/builds/john/
