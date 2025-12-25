@@ -75,7 +75,6 @@ alias gpu="git push -u origin main"
 alias gl="git pull"
 alias gck="git checkout"
 alias gst="git status"
-alias glgg="git log --graph"
 alias gr="git remote"
 alias gd="git diff"
 alias gb="git branch"
@@ -90,6 +89,12 @@ alias grb="git rebase"
 alias gcp="git cherry-pick"
 alias gai="git add -i"
 alias gr="git remote"
+alias glgg="git log --graph"
+alias glg="git log -n5"
+
+# github
+alias ghr="gh repo view --web"
+alias ghl="gh pr list --web"
 
 # cpp
 alias cmakel="cmake -B build"
